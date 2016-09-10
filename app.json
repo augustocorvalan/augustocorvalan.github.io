@@ -1,0 +1,16 @@
+{
+  "name": "Redux Shell",
+  "description": "A minimal skeleton for building testable Redux apps using Babel",
+  "keywords": [
+    "react",
+    "babel",
+    "starter",
+    "redux",
+    "minimal"
+  ],
+  "repository": "https://github.com/pheuter/essential-react",
+  "env": {
+    "PRODUCTION": "true",
+    "NPM_CONFIG_PRODUCTION": "false"
+  }
+}
