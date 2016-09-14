@@ -1,8 +1,8 @@
 # augustocorvalan.github.io 
 
-Personal website using Redux + React + postcss + webpack.
+Personal website using Redux + React + postCSS + webpack.
 
-Here for version control and for perusal by the curious.
+Check out `develop` branch for unobfuscated code :information_desk_person:
 
 
 
