@@ -8,16 +8,12 @@ import Header from '../../common/components/Header';
 import ReactInterval from 'react-interval';
 
 //actions
-import { getCardData, shuffleCards } from '../../actions/home.js';
+import { shuffleCards } from '../../actions/home.js';
 
 //constants
 const cardWidth = 300;
 
 class HomePage extends React.Component {
-	componentWillMount() {
-		this.props.getCardData();
-	}
-
 	getCards() {
 		return this.props.cards.map((card, i) => (
 			<img 
@@ -50,5 +46,5 @@ function mapStateToProps(state) {
 
 export default connect(
 	mapStateToProps,
-	{ getCardData, shuffleCards }
+	{ shuffleCards }
 )(HomePage);
