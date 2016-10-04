@@ -1,7 +1,7 @@
 import React from 'react';
 
 //components
-import {default as Grid} from "./StonecutterGrid";
+import {default as Grid} from "components/StonecutterGrid";
 
 const ItemGrid = ({ children, ...otherProps }) => (
 	<Grid {...otherProps}>

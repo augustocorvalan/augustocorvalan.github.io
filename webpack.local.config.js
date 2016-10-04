@@ -1,3 +1,4 @@
+var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -46,15 +47,13 @@ module.exports = {
         test: /\.css$/, 
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader?importLoaders=1!postcss-loader') 
       },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        loader: 'url-loader?limit=8192'
-      }
+      { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'url-loader?limit=8192'}
     ]
   },
 
   // Automatically transform files with these extensions
   resolve: {
+    root: path.resolve(__dirname, 'src'),
     extensions: ['', '.js', '.jsx', '.css']
   },
 

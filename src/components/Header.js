@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/header.css';
+import 'styles/header.css';
 //components
-import HeaderItem from './HeaderItem';
+import HeaderItem from 'components/HeaderItem';
 //icons
 import { FaGithub, FaEnvelopeO } from 'react-icons/lib/fa';
 
