@@ -12,7 +12,6 @@ header, main {
 	font-size: 1.1rem;
 	line-height: 1.33;
 	letter-spacing: 2px;
-    font-family: 'Roboto', sans-serif;
     font-family: 'Raleway', sans-serif;
 }
 
@@ -25,7 +24,7 @@ h1.name {
 	font-size: 5rem;
 }
 
-h1, h2, h3, a {
+h1, h2, a {
     font-family: 'Alegreya', serif;
 }
 
