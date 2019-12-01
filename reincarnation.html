@@ -1,0 +1,191 @@
+<html>
+    <head>
+
+        <style type="text/css">
+            input {
+                display: block;
+                margin: 0 auto;
+            }
+            .wrapper {
+                font-size: 1.5rem;
+                font-family: sans-serif;
+                margin: 0 auto;
+                width: 75vw;
+                text-align: center;
+            }
+            .header {
+                text-align: center;
+                font-family: serif;
+                font-size: 4rem;
+                font-style: italic;
+            }
+            #text {
+                text-align: left;
+                line-height: 3rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Reincarnation</h1>
+            <input type="range" min="1" max="5" onchange="handleChange(this.value)" />
+            <p class="header">n=<span id="n"></span></p>
+            <p id="text"></p>
+        </div>
+    </body>
+    <script type="text/javascript">
+        one = [
+    `Ludacris eats with his mother for the last time.
+    Ludacris empties the dishwasher.
+    Ludacris brushes his teeth.
+    Ludacris dies without warning in his sleep.`,
+
+
+    `Ludacris empties the dishwasher. Ludacris attends a funeral.
+    Ludacris waits in line. Ludacris dies without warning in his sleep.`,
+
+
+    `Ludacris loses all their teeth.
+    Ludacris is hit by a car during Thanksgiving.`
+    ]
+
+    two = [
+        `Ludacris gets a new Subaru.
+
+        Ludacris gets blitzed at a Xcel Energy Inc. party. Ludacris plays a victim in a catastrophic movie. St. Paul Pioneer Press calls the performance "weak".
+
+        Looking back, Ludacris now regrets trying to appear healthier or we
+        althier than he really was.
+
+        Standing in the rain, Ludacris is struck by lighting and killed ins
+        tantly.`,
+
+
+        `Ludacris feels the only thing left to do is simplify his career.
+        Ludacris feels the only thing left to do is worsen his career.
+        Ludacris gets soused at a FirstEnergy Corp. party.
+        Ludacris changes everything about their diet and decides to only do screwball comedies. Ludacris dies without warning in his sleep.`
+    ]
+
+    three = [
+    `Ludacris gets drunk at a Charter Communications party. Looking back, Ludacris now regrets ignoring guidance from a higher power. Ludacris waits in line. Ludacris sleeps alone for many years.
+
+    At a premiere, a man walks in with a 9mm Ruger SR9 semiautomatic and guns down Ludacris. There is hot pain then nothing. A day later, Ludacris wakes up in the garage of their house. They remember being dead as a month spent alone in a pool.`,
+
+    `Ludacris plays a mentor in a big-budget movie. The Atlanta Journal calls the performance "patronizing".
+
+    Ludacris changes everything about their diet and decides to only do slapstick comedies. Later, at a The Blackstone Group party, Ludacris overdoses on valinomycin. The feeling is like a heavy wet blanket and then nothing. 
+
+    A year later, Ludacris wakes up in the sitting room of their house. He remembers being dead as a long walk through a hallway.`,
+
+    `Ludacris attends a funeral. Looking back, Ludacris now regrets satisfying himself at the expense of others. Ludacris feels the only thing left to do is hush their career. At a premiere, a man walks in with a sawed-off Savage Springfield 67H pump-action shotgun and guns down Ludacris. There is hot pain then nothing. A lifetime later, Ludacris wakes up in the workshop of their house. They remember being dead as an eternity spent alone in a stockroom.`,
+
+
+    `Ludacris gets rowdy at a Delta Air Lines party.
+    Ludacris gets a new Bugatti.
+    Ludacris empties the dishwasher.
+    Later, at a Duke Energy Corporation party, Ludacris overdoses on methoxyethylmercuric acetate. The feeling is like a heavy wet blanket and then nothing...A month later, Ludacris wakes up in the cold room of their house. They remember being dead as a long walk through a staircase.`,
+
+    `At a premiere, a man walks in with an AK-47 and guns down Ludacris. There is hot pain then nothing. A night later, Ludacris wakes up in the backroom of their house. When asked they say death is like an eternity spent alone in a tv room.`,
+
+
+    `Ludacris changes everything about their diet and decides to only do mysteries.
+
+    Ludacris plays a detective in a catastrophic movie.
+
+    Ludacris feels the only thing left to do is grieve his career.
+
+    During a check-up, Ludacris is diagnosed with hereditary lymphedema. He dies in bed. A day later, Ludacris wakes up in the anteroom of their house. When asked they say death is like a short walk through a fire escape.`,
+
+    `Ludacris plays a superhuman in a low-budget movie. The Washington Post calls the performance "charitable".
+
+    Ludacris gets buzzed at a SLM Corporation party.
+
+    Ludacris gets thrashed at a Office Depot, Inc. party.
+
+    During a check-up, Ludacris is diagnosed with unspecified viral hepatitis C. He dies in bed. A year later, Ludacris wakes up in the pantry of their house. Afterwards, when they try to remember being dead all they can think about is a long walk through a trail.`,
+
+
+    `Ludacris gets trashed at a The AES Corporation party.
+
+    Looking back, Ludacris now regrets insisting on having the last word
+
+    Standing in the rain, Ludacris is struck by lighting and killed instantly. A day later, Ludacris wakes up in the storm cellar of their house. Afterwards, when they try to remember being dead all they can think about is a week spent alone in a very clean room.`,
+
+    `Ludacris plays a trickster in a catastrophic movie. The Star-Ledger calls the performance "dynamic"
+    Ludacris gets a new Maybach.
+    At a premiere, a man walks in with a .223 Bushmaster assault rifle
+    and guns down Ludacris. There is hot pain then nothing...A year lat
+    er, Ludacris wakes up in the loft of their house. When asked they say death is like a week spent alone in a water closet.`,
+
+    `Ludacris gets drunk at a The TJX Companies, Inc. party.
+    Ludacris is hit by a car during Labor Day. An instant later, Ludacris wakes up in the anatomical theatre. They remember being dead as an eternity spent alone in a panic room.`
+    ]
+
+    four = [
+        `Ludacris decides it best to purchase a .357-caliber Ruger SecuritySix for protection. Ludacris gets wrecked at a The Goldman Sachs Group party. He gets into a heated fight with Sean Hannity. Ludacris guns down Sean Hannity. Sean Hannity wakes up just before their burial. Sean Hannity crashes his car right into Ludacris's. Both die. Ludacris hits Sean Hannity on the head with a rock. Sean Hannity torches Ludacris's house but neither make it out.
+        Ludacris decides it best to purchase a Izhmash Saiga-12 12-gauge semiautomatic shotgun. Ludacris gets three sheets to the wind at a Kroger party. Ludacris gets disorderly at a Tenet Healthcare Corporation party. Ludacris hits Sean Hannity on the head with a rock. Sean Hannity crashes his car right into Ludacris's. Ludacris hits Sean Hannity on the head with a rock. Sean Hannity torches Ludacris's house but neither make it out. Ludacris decides it best to purchase a 9mm Ruger SR9 semiautomatic for protection. Ludacris gets blitzed at a Tyson Foods party.`,
+
+        `Ludacris decides it best to purchase a .32-caliber Retolaza semiautomatic for protection. Ludacris gets buzzed at a Google party. Then Ludacris gets annihilated at a AutoZone party. He gets into a heated fight with Sean Hannity. Ludacris guns down Sean Hannity. Sean Hannity wakes up just before their burial. Sean Hannity torches Ludacris's house. Ludacris guns down Sean Hannity. Sean Hannity wakes up just before their burial. Sean Hannity torches Ludacris's house but neither make it out. Ludacris decides it best to purchase a 9mm Ruger P85. Ludacris gets hammered at a Laboratory Corporation of America Holdings party. Ludacris hits Sean Hannity on the head with a rock. Sean Hannity torches Ludacris's house but neither make it out.`,
+
+        `Ludacris decides it best to purchase a 9mm Glock 17 for protection. Ludacris gets wasted at a General Dynamics Corporation party. He gets into a heated fight with Lance Bass. Ludacris hits Lance Bass on the head with a rock. 
+        Lance Bass wakes up just before their burial. 
+        Lance Bass torches Ludacris's house but neither make it out. Ludacris guns down Lance Bass. 
+        Lance Bass crashes his car right into Ludacris's. Both die.`
+    ]
+        
+    </script>
+    <script type="text/javascript">
+        corpuses = {
+            1: one,
+            2: two,
+            3: three,
+            4: four,
+            5: []
+        }
+        chosen_corpuses = {
+            1: choice(corpuses[1]),
+            2: choice(corpuses[2]),
+            3: unique_choice(corpuses[3]) + '\n\n' + unique_choice(corpuses[3]),
+            4: choice(corpuses[3]) + '\n\n' + choice(corpuses[4])
+        }
+        setText()
+
+        function shuffle(list) {
+            return list.sort(function() {
+                return 0.5 - Math.random()
+            })
+        } 
+
+        function setText(value = 3) {
+            let chosen;
+
+            if (value === "5") {
+                chosen = shuffle(chosen_corpuses[4].split('.')).join('.')
+
+            } else {
+                chosen = chosen_corpuses[value]
+            }
+
+            document.getElementById('text').innerText = chosen
+            document.getElementById('n').innerText = value
+        }
+
+        function choice(list) {
+            rand = Math.floor(Math.random() * list.length)
+            return list[rand]
+        }
+
+        function unique_choice(list) {
+            rand = Math.floor(Math.random() * list.length)
+            let chosen = list[rand]
+            list.splice(rand, 1)
+            return chosen 
+        }
+
+        function handleChange(value) {
+            setText(value)
+        }
+
+    </script>
+</html>
