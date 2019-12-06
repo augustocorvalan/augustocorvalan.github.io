@@ -1,0 +1,68 @@
+main {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	max-width: 100%;
+}
+
+.project {
+	padding: 1rem;
+	border-top: 5px solid black;
+}
+
+.project:nth-child(even) {
+	margin-top: 6rem;
+}
+
+.project:nth-child(2) {
+	text-align: right;
+}
+
+.project:nth-child(2) .images {
+	justify-content: right;
+}
+
+.project .title {
+	font-size: 2rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.project .tags {
+	font-style: italic;
+}
+
+.project .description {
+}
+
+.project .location {
+	display: inline-block;
+	font-size: 1rem;
+}
+
+.project .date {
+	display: inline-block;
+	margin-right: 4rem;
+}
+
+.project .images, .project img {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.project .img, .project img {
+	width: 375px;
+	height: 100%;
+	border: 3px solid black;
+	transition: width 0.25s ease-out;
+}
+
+.project .img:hover, .project img:hover {
+	//width: 570px;
+}
+
+.alive.project .images {
+/*	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-items: right;
+*/}

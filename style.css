@@ -38,68 +38,6 @@ a:hover {
 	font-style: italic;
 }
 
-.coding main {
-	display: flex;
-	margin-top: 0;
-	justify-content: stretch;
-	overflow: scroll;
-	cursor: ew-resize;
-}
 
-.card {
-	border: 1px solid black;
-	padding: 1rem;
-	min-width: 250px;
-}
 
-.card .card-header {
-	text-transform: uppercase;
-	font-size: 1.5rem;
-	margin-bottom: 1rem;
-	padding-bottom: 0.5rem;
-	border-bottom: 1px solid black;
-}
 
-.card .card-tags {
-	font-style: italic;
-	font-size: 1rem;
-	padding-bottom: 1.5rem;
-}
-
-.writing main {
-	display: flex;
-}
-
-.sidebar {
-	margin: 3rem;
-	background-color: black;
-}
-
-.sidebar p {
-	text-transform: uppercase;
-	color: white;
-	padding: 1rem;
-	cursor: pointer;
-}
-
-.sidebar p:hover, .sidebar .selected {
-	background-color: white;
-	color: black;
-}
-
-.writing-credit {
-	display: none;
-}
-
-.writing-credit.show {
-	display: block;
-}
-
-.writing-credit img {
-	width: 800px;
-}
-
-.writing-credit video, .writing-credit iframe {
-	display: block;
-	margin-bottom: 2rem;
-}
