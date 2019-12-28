@@ -12,6 +12,7 @@
 	color: white;
 	padding: 1rem;
 	cursor: pointer;
+    font-family: 'Poppins', sans-serif;
 }
 
 .sidebar p:hover, .sidebar .selected {

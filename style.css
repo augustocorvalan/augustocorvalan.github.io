@@ -15,10 +15,13 @@ header, main {
     font-family: 'Quattrocento', serif;
 }
 
+header {
+	text-align: right;
+}
+
 h1 {
 	font-size: 3rem;
 	font-weight: 900;
-    font-family: 'Poppins', sans-serif;
 }
 
 
