@@ -53,7 +53,6 @@ main {
 .project .img, .project img {
 	width: 375px;
 	height: 100%;
-	border: 3px solid black;
 	transition: width 0.25s ease-out;
 }
 

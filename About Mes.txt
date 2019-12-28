@@ -1,0 +1,58 @@
+--Tell me a bit more about yourself, especially your past experiences and anything relative to JS work. Please, take your time.
+
+
+	I am an artist and engineer. I am passionate about using technology to create community. 
+
+	I am the creator of DEAD ALIVE Magazine, an online platform for experimental storytellers. I collaborate with artists from around the world to craft their vision, honing their pitch through email discussions, designing a wireframe or interactive prototype, all the way to final product. For this project I utilize Jekyll to serve interactive web pages built with HTML, CSS3 and vanilla Javascript.
+
+	I have been a professional software developer for 7 years, mostly working in Javascript. Since 2013 I have been a senior front-end engineer at 1stdibs.com, an ecommerce marketplace for fine art. My proudest moments at 1stdibs include introducing React and React best-practices to the code-base (all the way back in 2013!), leading a team to completely rewrite the browse pages (utilizing React, Relay, graphQL and Node), and creating a whole suite of custom performance tools, from page speed visualizers to a load testing platform (which leveraged React, Node, Babel, Pupeeter, Artillery and AWS).
+
+	Finally, I am a digital artist who utilizes Python and Natural Language Processing techniques to explore future modes of storytelling. Check out my National Novel Generation Month 2018 entry, a paranoid spy novel written by finite state machines -- https://github.com/augustocorvalan/NaNoGenMo2018/blob/master/README.md.
+
+
+--What are you currently learning (e.g. framework, language, pattern, practice) and how are you going about it? 
+
+	Currently, I am working (very excitedly) to open-source the automated load testing library I developed at 1stdibs so I am learning open-source best practices. This process has involved going through the Readmes of Github projects from users whose clarity I admire. I have found it helpful to read through code of similar libraries to understand what other approaches exist. I am getting continuous feedback from possible users of different backgrounds, from front-end devs to sys-ops engineers. This research has led to several drafts of the best Readme for this project as well as tweaking and honing the public interface of the script to better serve the consumers. 
+
+
+	I am currently (excitedly) learning spaCy, an industrial-strength Python library for Natural Language Processing. 
+
+	The library is massive and quite intimidating. The theory behind it is complicated and...quite intimidating. 
+
+	When I am looking to get a foothold on a giant, intimidating project I usually start by reading. For this project I researched the lectures of Alison Parrish, a computer scientist working in this field that I really admire. Parrish's lectures make it easy to get started with the intitial concepts and clarifies the links between cold theory and live code. 
+
+	In order to internalize what I am reading, however, I need to do. I use a project-based approach, starting first with the simplest possible project I can think of--in this case it was filtering out all adjectives from a text. Each project after that builds on the previous, so that after a few days I have built a full-fledged part-of-speech tagger. Sometimes projects represent a natural break in interest--a script to extract word vectors out of a text. But since each project is created to be small and modular, they can be pieced together. Soon I had a script that rated the structural similarity of two texts utilizing a part-of-speech tagger and a word vector arithmetic.
+
+
+
+
+--Give us an example of how you ideally work with different stakeholders in a product team (Product Managers, Designers, etc) 
+
+One of my proudest achievements at 1stdibs is leading the team in a year-long rewrite of their search and browse pages, which are the main drivers of growth for the marketplace. The team consisted of one PM, one designer and two junior developers (working across different time-zones). The project was delivered right on schedule and was launched without major bugs. I credit the success of the project to a practice of respect, communication and preparation.
+
+prefer preparation -- product managers and designers outline product requirements and design prototypes before coding begins. Deadlines, minimum-viable product and product requirements are clear up-front.
+
+understand motivation and process -- I attended all the design and product outline meetings. Often I just attended to listen. But this paid off later on, as I was able to understand how certain requirements and features had come to be and I was able to act a communication bridge between the PM, designer and junior engineers.
+
+know the consumer -- our PM understood that it would be the engineers that consumed the JIRA project so she worked closely with us to structure it in a way that made the most sense for how we worked.
+
+communication and respect -- use Hanlon's Razor (which I also saw at Aula brain!). Set up teammates to success. Respect each other's time by only interrupting them when you really need it--don't create unecessary work for your teammates. And always be willing to help when someone does truly needs it. 
+
+	One of my proudest achievements at 1stdibs is leading the team in a year-long rewrite of their search and browse pages, which are the main drivers of growth for the marketplace. The team consisted of one PM, one designer and two junior developers (working across different time-zones). The project was delivered right on schedule and was launched without major bugs. I credit the success of the project to clear and constant communication, setting up teammates for success and an atmosphere of support. For example, before any coding began the PM and designer worked closely together on the redesign. I made sure to attend each meeting and follow their work. Even when my opinion was not needed it gave me the necessary background later to understand where requirements where coming from. Once coding began, the junior devs were set up for success by being given clear and challenging responsibilities. I crafted the bare bones of a structure for the project so that they would have something to work off of and was available for pair-programming when they felt it needed. Finally, our whole team utilized Hanlon's Razor (which I also saw at Aula Brain!) in order to help each other out in smoothing over misunderstandings.
+
+
+--What do you think makes a great remote culture? What are some exciting practices that you've seen during your career?
+
+I believe that a great remote culture starts with streamlined and open communication. This is more than merely a focus on async communication and clear documentation (though both of these things are also really important!) but should stem from core values. 
+
+For example, in my experience working across time-zones I have found that respect and trust can be a reward in itself and have tried to apply that to all of my projects by both giving my team members my trust as well as earning theirs.
+
+One practice I appreciated at my time at 1stdibs was their effort to teach and practice giving feedback. When the company was a few people our retrospectives were a mess--blaming and yelling were not unknown. As we grew we hired Agile coaches that taught us how put into practice blameless feedback. After that our retrospectives became focused on results and process and each one became an opportunity to hone our feedback skills.
+
+
+
+--What is the one thing about Aula or the role that you are most excited about? Share a few lines
+
+I found Aula by filtering through KeyValue profiles--I had selected "Actively Practices Inclusion" and "Bonded by Love of Product". I think an organization that practices inclusion is not only making a smart business decision but also an important statement about its critical values. As an immigrant I truly believe that a diverse workplace benefits everyone. 
+
+As a life-long student, I have seen the benefits of education but also the many pitfalls when educational institutions are not prepared to meet student needs. I am truly excited to work on a product meant to build community and foster better education for all. 
