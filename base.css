@@ -1,0 +1,44 @@
+* {
+	box-sizing: border-box;
+}
+h1 {
+	font-family: 'Pirata One';
+}
+a {
+	font-style: italic;
+	font-size: 1rem;
+	line-height: 1;
+	text-decoration: none;
+	color: black;
+}
+a:hover {
+	border-bottom: 2px solid red;
+	animation: pulse 1s infinite;
+	animation-direction: alternate;
+}
+@keyframes pulse {
+	0% {
+		border-color: white;
+	}
+	100% {
+		border-color: red;
+	}
+}
+@media screen and (max-width: 768px) {
+	a {
+		border-bottom: 1px solid red;
+	}
+}
+
+footer {
+	text-align: center;
+}
+footer .logo {
+	text-decoration: none;
+	border-bottom: none;
+	font-style: initial;
+	color: red;
+	font-family: "Pirata One";
+	text-align: center;
+	font-size: 2rem;
+}

@@ -1,0 +1,419 @@
+<html>
+	<head>
+		<title>Augusto Corvalan | Visual Works</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:500,600|Pirata+One&display=swap" rel="stylesheet"> 		
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				margin: 0;
+				display: flex;
+			}
+			main {
+				height: 100vh;
+				width: 100vw;
+				overflow-x: scroll;
+				overflow-y: hidden;
+
+				display: flex;
+				align-items: center;
+			}
+			img {
+				width: 100%;
+			}
+
+			a {
+				line-height: 1;
+				text-decoration: none;
+				color: black;
+			}
+			a:hover {
+				border-bottom: 2px solid red;
+				animation: pulse 1s infinite;
+				animation-direction: alternate;
+			}
+			@keyframes pulse {
+				0% {
+					border-color: white;
+				}
+				100% {
+					border-color: red;
+				}
+			}
+
+			header {
+				padding: 0.5rem;
+				padding-right: 1rem;
+				border-right: 1px solid lightgray;
+				margin: 1rem 0;
+				position: relative;
+			}
+			header a {
+				display: block;
+				font-size: 1.5rem;
+				margin-bottom: 2rem;
+			}
+			h1 {
+				font-family: 'Pirata One';
+				text-transform: uppercase;
+				font-size: 1.75rem;
+				position: absolute;
+				bottom: 0;
+				border-top: 1px solid lightgray;
+				padding-top: 1rem;
+			}
+			.nav-item.active {
+				color: red;
+			}
+
+
+			#entryContainer {
+				display: inline-flex;
+				flex-direction: row;
+
+				font-family: 'Cormorant Garamond', serif;	
+				margin: 1rem;
+			}
+			.entry {
+				width: 66vw;
+				flex: 1;
+				padding-right: 12vw;
+				display: flex;
+				flex-flow: row wrap;
+				transition: flex-grow 2s;
+			}
+			.hidden-entry {
+				display: none;
+			}
+			.hidden-entry-anim {
+				display: none;
+			}
+			.show-entry-anim {
+				display: flex;
+			}
+			.right {
+				justify-content: flex-end;
+			}
+			.center {
+				justify-content: center;
+			}
+			.title {
+				font-size: 4rem;
+				font-weight: 600;
+			}
+
+			.description {
+				font-size: 1.5rem;
+			}
+
+			.photo, .tags, .title, .description {
+				margin: 1rem;
+			}
+			.photo {
+				max-width: 80vw; 
+				display: block; 
+				height: 0;
+				padding-bottom: 56.25%;
+				overflow: hidden;
+			}
+
+			.tags {
+				font-size: 3rem;
+			}
+			.tags span {
+				color: red;
+			}
+			.tags a {
+				padding-right: 0.5rem;
+			}
+			.tags a:before {
+				content: '/';
+			}
+
+			@media screen and (max-width: 767px) {
+				body {
+					flex-direction: column;
+				}
+				header {
+					padding-top: 0;
+					border: none;
+					border-top: 1px solid lightgray;
+					border-bottom: 1px solid lightgray;
+				}
+				#nav {
+					display: flex;
+					flex-wrap: wrap;
+				}
+				h1 {
+					position: relative;
+					border-top: none;
+					border-bottom: 1px solid lightgray;
+					padding-top: 0;
+				}
+				.nav-item {
+					margin-right: 2rem;
+					margin-bottom: 1rem;
+				}
+				main {
+					overflow-y: scroll;
+					overflow-x: hidden;
+					align-items: start;
+				}
+				#entryContainer {
+					flex-direction: column;
+					margin: 0;
+				}
+				.entry {
+					width: 100vw;
+					flex-direction: column;
+					padding-bottom: 15vh;
+					padding-right: 0;
+					flex-wrap: nowrap;
+				}
+				.photo {
+					max-width: 100vw;
+				}
+			}
+
+
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Visual Works</h1>
+			<div id="nav">
+				<a id="allNav" href="" class="nav-item">All</a>
+				<a href="#public-art" class="nav-item">Public Art</a>
+				<a href="#new-media" class="nav-item">New Media</a>
+				<a href="#interactive" class="nav-item">Interactive</a>
+				<a href="#community" class="nav-item">Community</a>
+				<a href="#stickers" class="nav-item">Stickers</a>
+				<a href="#graffiti" class="nav-item">Graffiti</a>
+				<a href="#wheatpaste" class="nav-item">Wheatpaste</a>
+			</div>
+		</header>
+		<main>
+			<div id="entryContainer">
+			</div>
+		</main>
+	</body>
+	<script type="text/javascript">
+		const ENTRIES = [
+			{
+				title: 'Alive',
+				 src: './images/alive-1.jpg',
+				description: 'Mobile art station for artists without access to permanent housing',
+				tags: ['public art', 'community'],
+			},
+			{
+				title: "Let's Go Somewhere Else",
+				src: './images/somewhere-else.png',
+				description: 'Browser pop-up poetry',
+				tags: ['new media', 'interactive']
+			},
+			{
+				title: 'New Surveillance',
+				src: './images/surveillance-1.jpg',
+				description: 'New designs for domestic surveillance program codenames',
+				tags: ['public art', 'stickers']
+			},
+			{
+				title: 'Today Tomorrow Yesterday',
+				src: './images/tty.png',
+				description: 'Browser-based noise narrative',
+				tags: ['new media']
+			},
+			{
+				title: 'Fruits',
+				 src: './images/fruit-1.jpg',
+				tags: ['public art', 'wheatpaste']
+			},
+			{
+				title: 'Reincarnation',
+				src: './images/reincarnation.png',
+				tags: ['new media', 'interactive']
+			},
+			{
+				title: 'Thinking Parade',
+				src: './images/thinking-1.jpg',
+				tags: ['public art', 'graffiti']
+			},
+			{
+				title: 'The Hallway',
+				src: './images/hallway.png',
+				description: 'Computer-generated novel',
+				tags: ['new media']
+			},
+			{
+				title: 'Ambient Fields',
+				src: './images/ca-2.jpg',
+				description: 'Experiments in ambient cellular automata design',
+				tags: ['new media']
+			},
+			{
+				title: 'Lost Objects',
+				 src: './images/lost-object-3.jpg',
+				description: 'Stickers+found materials scattered through the city',
+				tags: ['public art', 'stickers']
+			}
+		];
+		createAllEntries();
+		selectNavItem();
+		initListeners();
+
+//----------------------               ------------
+		function initListeners() {
+			initUrlListeners();	
+		}
+		function createAllEntries() {
+			ENTRIES.forEach(createEntry);
+		}
+
+		function initUrlListeners() {
+			window.onhashchange = () => {
+				selectNavItem();
+				filterEntriesByTag();
+				resetEntryScroll();
+			}
+		}
+		function resetEntryScroll() {
+			document.getElementsByTagName('main')[0].scrollLeft	= 0;
+		}
+		function selectNavItem() {
+			const currentTag = getHash();
+			Array.from(document.getElementsByClassName('nav-item'))
+				.forEach(navItem => {
+					if (navItem.innerHTML.toLowerCase() === currentTag) {
+						navItem.classList.add('active');
+					} else {
+						navItem.classList.remove('active');
+					}
+				});
+		}
+		function createEntry(entry) {
+			const keyFuncMap = {
+				title: createTitle,
+				src: createImage,
+				tags: createTags,
+				description: createDescription
+			}
+
+			// make entry dom element
+			const entryDom = document.createElement('div');
+			entryDom.classList.add('entry');
+			entryDom.classList.add(pick(['center', 'right']))
+			if (!entryHasTag(entry.tags)) {
+				entryDom.classList.add('hidden-entry');
+			}
+			// shuffle keys
+			const keys = shuffle(Object.keys(entry));
+			// now loop through the keys and put them in the DOM
+			keys.forEach((key,idx) => {
+				const value = entry[key];
+				const domObj = keyFuncMap[key](value);
+
+				entryDom.appendChild(domObj);
+			});
+			// insert entry dom element
+			const entryContainer = document.getElementById('entryContainer');
+			entryContainer.appendChild(entryDom);
+		}
+
+		function createTitle(title) {
+			const entryLink = document.createElement('a');
+			entryLink.href = `./${title.split(' ').join('-').toLowerCase()}.html`;
+			entryLink.innerHTML = title;
+
+			const titleDiv = document.createElement('div');
+			titleDiv.classList.add('title');
+			titleDiv.appendChild(entryLink);
+
+			return titleDiv;
+		}
+		function createImage(src) {
+			const divDom = document.createElement('div');
+			divDom.classList.add('photo');
+			const imgDom = document.createElement('img');
+			imgDom.src = src;
+			divDom.appendChild(imgDom);
+			return divDom;
+		}
+		function createTags(tags) {
+			// container
+			const divDom = document.createElement('div');
+			divDom.classList.add('tags');
+
+			// create brackets
+			const spanLeft = document.createElement('span');
+			spanLeft.innerHTML = '{';
+			const spanRight = document.createElement('span');
+			spanRight.innerHTML = '}';
+
+			// left bracket
+			divDom.appendChild(spanLeft);
+			// tags
+			const tagsDom = tags.map(createTag);
+			tagsDom.forEach(tagDom => divDom.appendChild(tagDom));
+			// right bracket
+			divDom.appendChild(spanRight);
+
+			return divDom;
+		}
+		function createTag(tag) {
+			const tagLink = document.createElement('a');
+			tagLink.href = `#${tag.replace(' ', '-')}`;
+			tagLink.innerHTML = `${tag}`;
+			return tagLink;
+		}
+		function createDescription(description) {
+			const paragraph = document.createElement('p');
+			paragraph.classList.add('description');
+			paragraph.innerHTML = description;
+			return paragraph;
+		}
+
+		function entryHasTag(tags) {
+			const currentTag = getHash();
+			if (!currentTag) {
+				return true;
+			} else {
+				return tags.some(tag => tag === currentTag);
+			}
+		}
+		function filterEntriesByTag() {
+			const entries = Array.from(document.getElementsByClassName('entry'));
+			const currentTag = getHash();
+
+			entries.forEach(entry => {
+				const tags = Array.from(entry.querySelectorAll('.tags a')).map(a => a.innerHTML);
+				if (entryHasTag(tags)) {
+					entry.classList.remove('hidden-entry-anim');
+					entry.classList.add('show-entry-anim');
+				} else {
+					entry.classList.remove('show-entry-anim');
+					entry.classList.add('hidden-entry-anim');
+				}
+			});
+		}
+
+		function getHash() {
+			return window.location.hash.substr(1).replace('-', ' ');
+		}
+		function shuffle(a) {
+			for (let i = a.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[a[i], a[j]] = [a[j], a[i]];
+			}
+			return a;
+		}
+		function pick(arr) {
+			const index = getRandomNumber(0, arr.length-1);
+			return arr[index];
+		}
+		function getRandomNumber(min, max) {
+			return Math.floor(Math.random() * (max - min + 1) + min);
+		}
+	</script>
+</html>

@@ -1,199 +1,146 @@
 <html>
-<head>
-    <link rel="stylesheet" href="style.css">
-    <style>
-    	body {
-/*    		border: 1rem solid black;
-*/    		margin: 0;
-    		min-height: 100vh;
-    	}
+	<head>
+		<title>Augusto Corvalan</title>
+		<link rel="stylesheet" type="text/css" href="./base.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:500,600|Pirata+One&display=swap" rel="stylesheet"> 		
+		<style>
+			body {
+				font-family: 'Cormorant Garamond', serif;	
+				max-width: 768px;
+				margin: 0 auto;
+			}
+			a {
+				font-size: 1.5rem;
+			}
+			header {
+				height: 100vh;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			h1 {
+				font-family: 'Pirata One';
+				text-align: center;
+				margin: 0;
+				padding-top: 15vh;
+				font-size: 6rem;
 
-    	.name {
-    		width: 66vw;
-    		overflow-x: hidden;
-    		background-color: white;
-    		display: flex;
-    		flex-wrap: nowrap;
-    		justify-content: center;
-    		align-items: center;
-    		margin: 0 auto;
+				// animation: 1.5s tilt, 2s color;
+				// animation: 3s color infinite;
+				animation-delay: 0.5s;
+				// animation-fill-mode: forwards;
+				animation-timing-function: ease-in; 
+				animation-direction: alternate;
+				
+			}
+			h2 {
+				text-align: center;
+				font-weight: 500;
+				border-top: 1px solid lightgray;
+				border-bottom: 1px solid lightgray;
+				padding: 1rem 0;
+				font-size: 1.25rem;
+				font-style: italic;
+			}
+			h3 {
+				font-weight: 600;
+				font-size: 1.5rem;
+				text-transform: uppercase;
+			}
+			main {
+				margin: 1rem;
+			}
+			section {
+				margin-bottom: 12vh;
+			}
+			p {
+				font-family: 'Cormorant Garamond', serif;	
+				line-height: 2;
+				padding-bottom: 1rem;				
+				font-size: 1.5rem;
+				text-align: justify;
+				text-justify: inter-word;
+			}
+			a {
+				border-bottom: 2px solid red;
+			}
 
-	  	    animation-duration: 2s;
-			animation-name: slidein; 
-			animation-timing-function: ease;
+			.capabilities p {
+				margin: 0;
+				padding: 0;
+				padding-left: 1rem;
+			}
 
-		    font-family: 'Poppins', sans-serif;
-		    font-weight: 200;
-     	}
+			footer {
+				text-align: center;
+				padding-bottom: 3rem;
+			}
 
-    	@keyframes slidein {
-    		from {
-    			width: 25vw; 
-    		}
+			@media screen and (min-width: 768px) {
+				h1 {
+					transform: rotate(-6deg);
+					font-size: 9rem;
+				}
+				h2 {
+					border-top: none;
+				}
+			}
 
-    		to {
-    			width: 66vw;
-    		}
-    	}
+			@keyframes color {
+				0% {
+					color: black;
+				}
+				100% {
+					color: red;
+				}
+			}
+			@keyframes tilt {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(-6deg);
+				}
+			}
+		</style>
+	</head>
+		
 
-    	.row {
-    		display: flex;
-			flex-direction: column;
-			padding: 0.25rem;
-			text-align: center;
-    		font-size: 3rem;
-    	}
+	<body>
+		<header>
+			<h1>Augusto Corvalan</h1>
+			<h2>Artist / Developer / Designer</h2>
+		</header>
+		<main>
+			<section>
+				<p>I spend a lot of time collaborating with artists to explore future modes of storytelling. I am the creator of <a href="https://deadalivemagazine.com/">DEAD ALIVE MAGAZINE</a>.</p>
+				<p>I have worked as a software engineer since 2013--<a href="resume.pdf">Here is my resume</a>.</p>
+				<p>Currently pursuing an MFA in Studio Art at <a href="https://www.mica.edu/">Maryland College Institute of Art</a>. I get my hands dirty with <a href="./projects/project-index.html">new media and public art.</a></p>
+				<p>Sometimes I write about my experiments <a href="./blog/posts.html">here</a>.</p>
+				<p>Contact me for collaborations / freelance projects / say hi at <a href="mailto:augustocorvalan@gmail.com">augustocorvalan@gmail.com</a></p>
+			</section>
+			<section class="capabilities">
+				<h2>Capabilities</h2>
+				<h3>Software Engineering</h3>
+				<p>Web Dev</p>
+				<p>Full-Stack</p>
+				<p>New Media</p>
+				<p>Creative Coding</p>
 
-    	.row:nth-child(2n) {
-    		font-weight: bold;
-    	}
-
-    	.row p {
-    		margin: 0;
-    		padding: 0;
-    	}
-
-    	.intro {
-    		background-color: black;
-    		width: 33vw;
-    		margin: 0 auto;
-    		padding: 3rem;
-    	}
-
-    	.intro p, .intro a {
-    		color: white;
-    		font-size: 1.75rem;
-    		line-height: 2.25;
-		    font-family: 'Quattrocento', serif;
-		    margin-bottom: 5rem;
-    	}
-
-
-    </style>
-	<link href="https://fonts.googleapis.com/css?family=Quattrocento:400,700|Poppins:100,400,700&display=swap" rel="stylesheet"> 
-	<title>Augusto Corvalan</title>
-</head>
-<body class="home">
-	<header>
-		<div class="name">
-			<div class="row">
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-			</div>
-			<div class="row">
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-			</div>
-			<div class="row">
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-			</div>
-			<div class="row">
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-			</div>
-			<div class="row">
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-			</div>
-			<div class="row">
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-			</div>
-			<div class="row">
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-			</div>
-			<div class="row">
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-				<p>CORVALAN</p>
-				<p>AUGUSTO</p>
-			</div>
-		</div>
-	</header>
-	<main>
-		<section class="intro">
-
- 			<p>I am a developer and designer working at the intersection of tech, art, design and community.</p>
-
-			<p>I spend a lot of time collaborating with artists to explore future modes of storytelling. I am the creator of <a href="https://deadalivemagazine.com/">DEAD ALIVE MAGAZINE</a>.</p>
-
-			<p>I have worked as a software engineer since 2013--<a href="coding.html">more about my work here</a>.</p>
-
-
-			<br />
-			<p>I've tried switching to tea but espresso will always have my heart.</p>
-			<p>I used to split my time between creative writing and coding. <a href="writing.html">These days I combine the two.</a> I keep a blog of electronic literature techniques <a href="blog/finding-cross-textual-connections-using-markov.html">HERE</a>.</p> 
-			<br />
-
-			<p>Currently pursuing an MFA in Studio Art at <a href="https://www.mica.edu/">Maryland College Institute of Art</a>. I get my hands dirty with <a href="visual-art.html">printmaking, graphic design and public art.</a></p>
-
-
-			<br />
-			<p>I am a <a href="https://www.columbia.edu/">Columbia University</a> alum, where I studied computer science with a focus on <a href="https://www.semanticscholar.org/paper/Social-Network-Analysis-of-Alice-in-Wonderland-Agarwal-Corvalan/845c095b679e75f5f7d299935407ea89313741f2?citingPapersSort=is-influential#citing-papers">natural language processing and literature.</a></p>
-
-			<br />
-			<p>For coding I prefer upbeat dance music. For creative writing I find silence is best.</p>
-
-
- 
-
-		<!-- 	<p>In my free time I like to read and think about long-term community building projects.</p>
-
-		 -->	
-		</section>
-<!-- 		<section>
-			TECHNICAL SKILLS
-			9 years of professional level web development and design 
-			Printmaking
-			Video Editing
-			Motion Graphics
-			Book & Poster Design
-			Algorithmic Art and Writing
-
-			CONCEPTUAL SKILLS
-			Collaborative Thinking with Artists, Writers & Editors
-			Long-Term Community Building
-			Experimental and Avant-Garde Practices in Writing
-		</section>
- -->
-
- 			<br />
-			<p>Interested in connecting? Email me:
-			<br />
-			<a href="mailto:augustocorvalan@gmail.com">augustocorvalan@gmail.com</a>
-			</p>
- </main>
-</body>
+				<h3>Design</h3>
+				<p>Graphic Design</p>
+				<p>Books</p>
+				<p>Brochures</p>
+				<p>Posters</p>
+				<p>Prints</p>
+				<p>Publication</p>
+				<p>Image and Logos</p>
+				<p>Art Direction</p>
+			</section>
+		</main>
+		<footer>
+			<a href="/" class="logo">AC</a>
+		</footer>
+	</body>
 </html>
