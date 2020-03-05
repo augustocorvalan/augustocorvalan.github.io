@@ -192,6 +192,7 @@
 				<a href="#stickers" class="nav-item">Stickers</a>
 				<a href="#graffiti" class="nav-item">Graffiti</a>
 				<a href="#wheatpaste" class="nav-item">Wheatpaste</a>
+				<a href="#VR" class="nav-item">VR</a>
 			</div>
 		</header>
 		<main>
@@ -206,6 +207,12 @@
 				 src: './images/alive-1.jpg',
 				description: 'Mobile art station for artists without access to permanent housing',
 				tags: ['public art', 'community'],
+			},
+			{
+				title: 'No Stop City Remix',
+				src: './images/no-stop-vr.gif',
+				tags: ['new media', 'VR'],
+				description: 'Generative experimental architecture in VR'
 			},
 			{
 				title: "Let's Go Somewhere Else",
@@ -285,7 +292,7 @@
 			const currentTag = getHash();
 			Array.from(document.getElementsByClassName('nav-item'))
 				.forEach(navItem => {
-					if (navItem.innerHTML.toLowerCase() === currentTag) {
+					if (navItem.innerHTML.toLowerCase() === currentTag.toLowerCase()) {
 						navItem.classList.add('active');
 					} else {
 						navItem.classList.remove('active');
