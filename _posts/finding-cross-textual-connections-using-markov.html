@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Markov</title>
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:500,600|Pirata+One&display=swap" rel="stylesheet">       
+  <link rel="stylesheet" href="../base.css" />
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="finding-cross-textual-connections-using-python-and-markov-chains">Finding Cross-Textual Connections Using Python and Markov Chains</h1>
+<p>In different electronic literature projects I often find myself needing to generate text out of a corpora of texts centered around a subject, style or time period.  Today we are going to build a simple and extendable Python script to allow us to make connections across a corpora of texts using the <a href="https://github.com/jsvine/markovify"><code>Markovify</code></a> package.</p>
+<p>Code from this post can be found <a href="https://github.com/augustocorvalan/cross-textual-connections-markov">here</a>.</p>
+<h3 id="compiling-our-corpora">Compiling our Corpora</h3>
+<p>For this project I am interested in urban theory and psychogeography, which is the study of urban geography and its effect on the emotions and behaviors of individuals.</p>
+<p>I compiled a number of texts I want to explore, including Guy Debord’s <em>Society of Spectacle</em>, <em>Revolution of Everyday Life</em> by Raoul Vaneigem, Mervin Coverley’s history of psychogeography, as well as some miscellaneous texts that I think will have interesting interactions like Poe’s <em>Man in the Crowd</em> and Borges’ <em>Garden of Forking Paths</em>.</p>
+<p>I will store these texts as <code>.txt</code> files in a folder called <code>corpora</code> under my main project folder. Our script will start by loading our corpora into memory:</p>
+<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">import</span> glob
+ 
+<span class="token keyword">def</span> <span class="token function">load_corpora</span><span class="token punctuation">(</span>file_glob<span class="token operator">=</span><span class="token string">'./corpora/*.txt'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    files <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">for</span> file_name <span class="token keyword">in</span> glob<span class="token punctuation">.</span>glob<span class="token punctuation">(</span>file_glob<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	    text <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>file_name<span class="token punctuation">,</span> <span class="token string">'r'</span><span class="token punctuation">)</span>
+	    files<span class="token punctuation">[</span>file_name<span class="token punctuation">]</span> <span class="token operator">=</span> text<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> files
+</code></pre>
+<h3 id="markov-chains">Markov Chains</h3>
+<p>Markov Chains are a good first tool to try on a group of texts. It can be a bit of a blunt and sometimes requires many iterations before returning something useful (more on this later!) but it can be a quick and cheap way of generating unexpected insights and connections out of our corpora.</p>
+<p>I like the <code>Markovify</code> package  because it is easy to use but does a lot of powerful abstracting behind the scenes that we don’t want to worry about initially (for example, by default it suppresses generated sentences that exactly overlap the original text so we get only new text).</p>
+<p>To get started with <code>Markovify</code> we need to convert our dictionary of text files into Markov models using the <code>Text</code> function, which will generate a Markov chain out of each text. Then we will combine these Markov chains together using the handy <code>combine</code> helper. In this case we will also call <code>compile</code> on our model to improve speed:</p>
+<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">import</span> markovify
+
+corpora_files <span class="token operator">=</span> load_corpora<span class="token punctuation">(</span><span class="token punctuation">)</span>
+corpora_file_names <span class="token operator">=</span> corpora_files<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span>
+markov_models <span class="token operator">=</span> <span class="token punctuation">{</span>key<span class="token punctuation">:</span> markovify<span class="token punctuation">.</span>Text<span class="token punctuation">(</span>corpora_files<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">for</span> key <span class="token keyword">in</span> corpora_file_names<span class="token punctuation">}</span>
+model_combo <span class="token operator">=</span> markovify<span class="token punctuation">.</span>combine<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">(</span>markov_models<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> random_weights<span class="token punctuation">)</span>
+model_combo <span class="token operator">=</span> model_combo<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>One more thing to make things more interesting–<code>combine</code> takes a second optional argument, a list of weights for each model that determines the relative emphasis of each one. Let’s give each of our models a random weight.</p>
+<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">import</span> random
+
+corpora_file_names <span class="token operator">=</span> corpora_files<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+<span class="token comment"># Random weight from 0-2 with intervals of 0.1</span>
+random_weights <span class="token operator">=</span> random<span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token punctuation">[</span>x <span class="token operator">*</span> <span class="token number">0.1</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>corpora_file_names<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># Print out the weights of each text for the user </span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"RANDOM WEIGHTS:"</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> idx<span class="token punctuation">,</span> key <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>corpora_file_names<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>key <span class="token operator">+</span> <span class="token string">": "</span> <span class="token operator">+</span> <span class="token builtin">str</span><span class="token punctuation">(</span>random_weights<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    
+<span class="token comment"># Combine Markov Chains </span>
+model_combo <span class="token operator">=</span> markovify<span class="token punctuation">.</span>combine<span class="token punctuation">(</span><span class="token builtin">list</span><span class="token punctuation">(</span>markov_models<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> random_weights<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="output">Output</h3>
+<p><code>Markovify</code> provides several ways to extract output from our new combined<br>
+model. For this use case <code>make_sentence</code> will work for us.</p>
+<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">print</span><span class="token punctuation">(</span>model_combo<span class="token punctuation">.</span>make_sentence<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Some examples:</p>
+<pre><code>Urbanism is the expression of the experience of nature, on the trivial surface of contemplated pseudo-cyclical time, the production of commodities
+
+Out of this time flows above its own past which has its basis in the streets
+</code></pre>
+<p>Not bad, but not exactly giving us enough traction to gain insights into our texts. During this phase we will need to generate many sentences out of our model and hand-pick the ones that draw our interest while discarding the rest.</p>
+<p>One approach is to generate many sentences out of our model and save them to an external file. Then we can read through this file later and pick out the sentences that will server our project.</p>
+<p>Something more interesting is to present our user with a loop that serves sentences from our model and saves the ones the user chooses. Let’s start with abstracting away all the above work into a single function <code>get_markov_model</code>. Then let’s create a loop that presents the user with some options: <code>quit</code>, <code>save</code>, <code>discard</code>.</p>
+<pre class=" language-py"><code class="prism  language-py">markov_model <span class="token operator">=</span> get_markov_model<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">get_user_choice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>  <span class="token comment"># TODO</span>
+
+<span class="token keyword">def</span> <span class="token function">save_sentence</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>  <span class="token comment"># TODO</span>
+<span class="token keyword">def</span> <span class="token function">quit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span> <span class="token comment"># TODO</span>
+
+<span class="token comment"># set up input loop</span>
+choice <span class="token operator">=</span> <span class="token string">''</span>
+<span class="token keyword">while</span> choice <span class="token operator">!=</span> <span class="token string">'q'</span><span class="token punctuation">:</span>
+    new_sentence <span class="token operator">=</span> markov_model<span class="token punctuation">.</span>make_sentence<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>new_sentence<span class="token punctuation">)</span>
+    choice <span class="token operator">=</span> get_user_choice<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># option 1 is to save sentence</span>
+    <span class="token keyword">if</span> choice <span class="token operator">==</span> <span class="token string">'1'</span><span class="token punctuation">:</span>
+	    save_sentence<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> choice <span class="token operator">==</span> <span class="token string">'q'</span><span class="token punctuation">:</span>
+	    quit<span class="token punctuation">(</span><span class="token punctuation">)</span>   
+</code></pre>
+<p>To fill out some of the TODOs, let’s create a function that lets the user input whether they want to keep the current sentence.</p>
+<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">def</span> <span class="token function">get_user_choice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n[1] Save sentence."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[2] Discard sentence."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[q] Quit."</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"What would you like to do? "</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Which outputs:</p>
+<pre><code>With the development of capitalism, irreversible time as a journey containing its whole meaning within itself.
+
+[1] Save sentence.[2] Discard sentence.[q] Quit.
+What would you like to do? 
+</code></pre>
+<p>Cool! Now we can cycle rapidly through sentences to find the right ones for our project. But saving a sentence doesn’t really do anything. Let’s keep sentences in an output text file.</p>
+<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">def</span> <span class="token function">save_sentence</span><span class="token punctuation">(</span>sentence<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    output_file <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'output.txt'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">)</span>
+    output_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'\n %s \n'</span> <span class="token operator">%</span> sentence<span class="token punctuation">)</span>
+    output_file<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="reshuffle">Reshuffle</h2>
+<p>One last thing! At the beginning we assigned our models random weights, but it would be nice to reshuffle these weights to get different combinations. Let’s give the user a new option to reshuffle the models.</p>
+<pre class=" language-py"><code class="prism  language-py"><span class="token keyword">def</span> <span class="token function">get_user_choice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\n[1] Save sentence."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[2] Discard sentence."</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[3] Reshuffle models. "</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[q] Quit."</span><span class="token punctuation">)</span>
+</code></pre>
+<p>And then we will simply compile a new model with new weights (this is very inefficient and might cause problems with very large corpora).</p>
+<pre class=" language-py"><code class="prism  language-py">	<span class="token keyword">if</span> choice <span class="token operator">==</span> <span class="token string">'1'</span><span class="token punctuation">:</span>
+		save_sentence<span class="token punctuation">(</span>new_sentence<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> choice <span class="token operator">==</span> <span class="token string">'3'</span><span class="token punctuation">:</span>
+		markov_model <span class="token operator">=</span> get_markov_model<span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">elif</span> choice <span class="token operator">==</span> <span class="token string">'q'</span><span class="token punctuation">:</span>
+		quit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="next-steps">Next Steps</h2>
+<p>We now have an interactive way of creating useful word reservoirs out of our chosen corpora. These word reservoirs are often the first step in an electronic literature project and will allow us to quickly remix our chosen texts and create unexpected juxtapositions and insights.</p>
+<p>As useful and easy as Markov Chains are, right now our tool can only combine whole files together and the user has no way to delve into specific interests or themes. Next we will look at how word vectors can help us solve these problems.</p>
+</div>
+<footer>
+    <a class="logo" href="/">AC</a>
+</footer>
+</body>
+
+</html>
