@@ -1,6 +1,8 @@
-﻿<!DOCTYPE html>
-<html>
+---
+title: "Finding Cross-Textual Connections Using Python and Markov Chains"
+---
 
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
