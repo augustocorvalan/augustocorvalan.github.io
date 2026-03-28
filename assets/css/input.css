@@ -1,3 +1,27 @@
 @import "tailwindcss";
 @source "../../layouts/**/*.html";
 @source "../../content/**/*.md";
+
+@theme {
+  --color-yellow: #FFFF00;
+  --font-display: "Syne", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+main {
+  animation: fadeIn 0.3s ease both;
+}
+
+details > *:not(summary) {
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+details[open] > *:not(summary) {
+  max-height: 9999px;
+}

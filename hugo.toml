@@ -1,11 +1,12 @@
-baseURL = "https://example.com"
+baseURL = "https://augustocorvalan.com"
 languageCode = "en-us"
-title = "My Site"
+title = "Augusto Corvalan"
 
 enableRobotsTXT = true
 
 [params]
-  description = ""
-  author = ""
+  description = "Designer, engineer, and editor. Building things at the intersection of craft and technology."
+  author = "Augusto Corvalan"
   og_image = ""
   showHomeInNav = false
+  tagline = "Designer · Engineer · Editor"

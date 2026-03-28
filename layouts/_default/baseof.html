@@ -30,23 +30,44 @@
     <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" />
     {{ end -}}
 
+    <!-- Google Fonts: Syne (display) + IBM Plex Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+
     <link rel="stylesheet" href="/css/main.css" />
   </head>
-  <body class="min-h-screen bg-white text-gray-900 font-sans">
-    <nav class="border-b border-gray-200 px-6 py-4 flex gap-6 text-sm font-medium">
-      {{- if site.Params.showHomeInNav }}
-      <a href="{{ site.Home.Permalink }}" class="hover:text-blue-600 transition-colors">{{ site.Home.Title }}</a>
-      {{- end }}
-      {{- range site.RegularPages }}
-      {{- if .Parent.IsHome }}
-      <a href="{{ .Permalink }}" class="hover:text-blue-600 transition-colors">{{ .Title }}</a>
-      {{- end }}
-      {{- end }}
+  <body class="min-h-screen bg-white text-black">
+
+    <!-- Grain / noise overlay -->
+    <div aria-hidden="true" style="pointer-events:none;position:fixed;inset:0;z-index:50;opacity:0.12;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/><feColorMatrix type=%22saturate%22 values=%220%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22 opacity=%221%22/></svg>');background-repeat:repeat;"></div>
+
+    <!-- Nav -->
+    <nav class="border-b-[6px] border-black px-8 py-5 flex items-center justify-between">
+      <a href="/" class="font-bold text-2xl tracking-tight" style="font-family: var(--font-display);">AC</a>
+      <div class="flex items-center gap-8">
+        {{- if site.Params.showHomeInNav }}
+        <a href="{{ site.Home.Permalink }}" class="text-sm font-medium uppercase tracking-widest px-3 py-1 border-2 border-transparent hover:bg-[#FFFF00] hover:border-black transition-colors" style="font-family: var(--font-mono);">Home</a>
+        {{- end }}
+        <a href="/about/" class="text-sm font-medium uppercase tracking-widest px-3 py-1 border-2 border-transparent hover:bg-[#FFFF00] hover:border-black transition-colors{{ if eq .RelPermalink "/about/" }} bg-[#FFFF00] border-black{{ end }}" style="font-family: var(--font-mono);">About</a>
+      </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto px-6 py-16">
+    <main class="max-w-[1400px] mx-auto px-8 py-16">
       {{ block "main" . }}{{ end }}
     </main>
+
+    <!-- Footer -->
+    <footer class="border-t-4 border-black px-8 py-10 mt-16">
+      <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <span class="text-xs uppercase tracking-widest" style="font-family: var(--font-mono);">Augusto Corvalan &copy; {{ now.Year }}</span>
+        <div class="flex gap-6 text-xs uppercase tracking-widest" style="font-family: var(--font-mono);">
+          <a href="mailto:hello@augustocorvalan.com" class="hover:bg-[#FFFF00] px-1 transition-colors">Email</a>
+          <a href="https://linkedin.com/in/augustocorvalan" class="hover:bg-[#FFFF00] px-1 transition-colors">LinkedIn</a>
+          <a href="https://github.com/augustocorvalan" class="hover:bg-[#FFFF00] px-1 transition-colors">GitHub</a>
+        </div>
+      </div>
+    </footer>
 
     <script src="/js/main.js"></script>
   </body>
