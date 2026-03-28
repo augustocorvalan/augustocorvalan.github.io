@@ -22,9 +22,9 @@
         <div class="p-6">
           <h3 class="text-lg font-bold uppercase tracking-tight mb-2" style="font-family: var(--font-display);">{{ .Title }}</h3>
           <p class="text-xs leading-relaxed text-gray-700 line-clamp-3" style="font-family: var(--font-mono);">{{ .Params.description }}</p>
-          {{ if .Params.tools }}
+          {{ if .Params.tags }}
           <div class="flex flex-wrap gap-1.5 mt-4">
-            {{ range first 3 .Params.tools }}
+            {{ range first 3 .Params.tags }}
             <span class="border border-black text-xs px-2 py-0.5 uppercase tracking-wide" style="font-family: var(--font-mono);">{{ . }}</span>
             {{ end }}
           </div>
