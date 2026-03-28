@@ -1,0 +1,11 @@
+{{ define "main" }}
+<section class="flex flex-col gap-6">
+  <h1 class="text-5xl font-bold tracking-tight">{{ site.Title }}</h1>
+  <p class="text-lg text-gray-500 max-w-xl">{{ site.Params.description }}</p>
+  <div>
+    <a href="/" class="inline-block bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-colors">
+      Get started
+    </a>
+  </div>
+</section>
+{{ end }}

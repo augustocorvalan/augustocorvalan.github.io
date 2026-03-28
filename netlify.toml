@@ -1,0 +1,6 @@
+[build]
+  publish = "public"
+  command = "mkdir -p bin static/css && curl -fsSL https://github.com/tailwindlabs/tailwindcss/releases/download/v4.2.2/tailwindcss-linux-x64 -o bin/tailwindcss && chmod +x bin/tailwindcss && ./bin/tailwindcss -i assets/css/input.css -o static/css/main.css --minify && hugo"
+
+[build.environment]
+  HUGO_VERSION = "0.159.1"

@@ -1,0 +1,11 @@
+baseURL = "https://example.com"
+languageCode = "en-us"
+title = "My Site"
+
+enableRobotsTXT = true
+
+[params]
+  description = ""
+  author = ""
+  og_image = ""
+  showHomeInNav = false
