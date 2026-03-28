@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="border-b-4 border-black pb-8 mb-12">
+  <h1 class="text-4xl md:text-6xl font-extrabold uppercase tracking-tight" style="font-family: var(--font-display);">{{ .Title }}</h1>
+</div>
+<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+  {{ range .Pages }}
+  <li>
+    <a href="{{ .RelPermalink }}" class="block border-2 border-black p-6 hover:bg-[#FFFF00] transition-colors">
+      <h2 class="text-lg font-bold uppercase tracking-tight" style="font-family: var(--font-display);">{{ .Title }}</h2>
+      <p class="text-xs mt-2 leading-relaxed text-gray-700" style="font-family: var(--font-mono);">{{ .Params.description }}</p>
+    </a>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}

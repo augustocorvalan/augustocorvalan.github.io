@@ -1,0 +1,10 @@
+{{ define "main" }}
+<article class="max-w-2xl">
+  <div class="border-b-4 border-black pb-8 mb-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold uppercase tracking-tight" style="font-family: var(--font-display);">{{ .Title }}</h1>
+  </div>
+  <div class="prose prose-sm max-w-none leading-relaxed" style="font-family: var(--font-mono);">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

@@ -1,0 +1,74 @@
+{{ define "main" }}
+<!-- Hero placeholder image grid -->
+<div class="grid grid-cols-2 gap-2 mb-12">
+  {{ if .Params.images }}
+    {{ range .Params.images }}
+    <div class="aspect-video bg-gray-200 border-2 border-black">
+      <img src="{{ . }}" alt="" class="w-full h-full object-cover">
+    </div>
+    {{ end }}
+  {{ else }}
+  <div class="aspect-video bg-gray-200 border-2 border-black col-span-2 md:col-span-1 row-span-2"></div>
+  <div class="aspect-video bg-gray-200 border-2 border-black hidden md:block"></div>
+  <div class="aspect-video bg-gray-200 border-2 border-black hidden md:block"></div>
+  {{ end }}
+</div>
+
+<!-- Header -->
+<div class="border-b-4 border-black pb-8 mb-12">
+  <p class="text-xs uppercase tracking-widest mb-3" style="font-family: var(--font-mono);">{{ .Params.vertical | title }}</p>
+  <h1 class="text-4xl md:text-6xl font-extrabold uppercase tracking-tight leading-none" style="font-family: var(--font-display);">{{ .Title }}</h1>
+</div>
+
+<!-- Body grid: description left, metadata right -->
+<div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-12 md:gap-16">
+  <div>
+    {{ if .Content }}
+    <div class="prose prose-sm max-w-none leading-relaxed" style="font-family: var(--font-mono);">
+      {{ .Content }}
+    </div>
+    {{ else }}
+    <p class="leading-relaxed text-sm" style="font-family: var(--font-mono);">{{ .Params.description }}</p>
+    {{ end }}
+  </div>
+
+  <aside class="flex flex-col gap-8 border-l-4 border-black pl-8">
+    {{ with .Params.role }}
+    <div>
+      <p class="text-[10px] uppercase tracking-widest mb-1 text-gray-500" style="font-family: var(--font-mono);">Role</p>
+      <p class="text-sm font-medium" style="font-family: var(--font-mono);">{{ . }}</p>
+    </div>
+    {{ end }}
+
+    {{ with .Params.tools }}
+    <div>
+      <p class="text-[10px] uppercase tracking-widest mb-2 text-gray-500" style="font-family: var(--font-mono);">Tools &amp; Technologies</p>
+      <div class="flex flex-wrap gap-1.5">
+        {{ range . }}
+        <span class="border-2 border-black text-xs px-2 py-0.5 uppercase tracking-wide" style="font-family: var(--font-mono);">{{ . }}</span>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    {{ with .Params.links }}
+    <div>
+      <p class="text-[10px] uppercase tracking-widest mb-2 text-gray-500" style="font-family: var(--font-mono);">Links</p>
+      <div class="flex flex-col gap-1.5">
+        {{ with .github }}
+        <a href="{{ . }}" class="text-xs underline underline-offset-2 hover:bg-[#FFFF00] px-1 transition-colors w-fit" style="font-family: var(--font-mono);" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+        {{ end }}
+        {{ with .demo }}
+        <a href="{{ . }}" class="text-xs underline underline-offset-2 hover:bg-[#FFFF00] px-1 transition-colors w-fit" style="font-family: var(--font-mono);" target="_blank" rel="noopener noreferrer">Live Demo &rarr;</a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </aside>
+</div>
+
+<!-- Back link -->
+<div class="mt-16 border-t-4 border-black pt-8">
+  <a href="/about/" class="text-xs uppercase tracking-widest hover:bg-[#FFFF00] px-1 transition-colors" style="font-family: var(--font-mono);">&larr; Back to Work</a>
+</div>
+{{ end }}
