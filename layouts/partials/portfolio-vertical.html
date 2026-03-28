@@ -16,9 +16,14 @@
     {{ if $projects }}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
       {{ range $projects }}
+      {{ $hero := .Resources.GetMatch "hero.*" }}
       <a href="{{ .RelPermalink }}" class="border-2 border-black border-collapse p-0 group/card hover:bg-[#FFFF00] transition-colors block">
-        <!-- Placeholder image rect -->
-        <div class="aspect-video bg-gray-200 border-b-2 border-black w-full group/card-hover:bg-gray-300"></div>
+        {{ if $hero }}
+          {{ $thumb := $hero.Fill "800x450 Center webp" }}
+          <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ .Title }}" class="w-full border-b-2 border-black object-cover">
+        {{ else }}
+        <div class="aspect-video bg-gray-200 border-b-2 border-black w-full"></div>
+        {{ end }}
         <div class="p-6">
           <h3 class="text-lg font-bold uppercase tracking-tight mb-2" style="font-family: var(--font-display);">{{ .Title }}</h3>
           <p class="text-xs leading-relaxed text-gray-700 line-clamp-3" style="font-family: var(--font-mono);">{{ .Params.description }}</p>

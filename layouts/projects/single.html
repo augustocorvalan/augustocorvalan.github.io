@@ -1,18 +1,26 @@
 {{ define "main" }}
-<!-- Hero placeholder image grid -->
+<!-- Image grid -->
+{{ $hero := .Resources.GetMatch "hero.*" }}
+{{ $rest := .Resources.Match "*.{jpg,jpeg,png,gif}" | complement (slice $hero) }}
+{{ $images := slice }}
+{{ if $hero }}{{ $images = $images | append $hero }}{{ end }}
+{{ range $rest }}{{ $images = $images | append . }}{{ end }}
+{{ if $images }}
 <div class="grid grid-cols-2 gap-2 mb-12">
-  {{ if .Params.images }}
-    {{ range .Params.images }}
-    <div class="aspect-video bg-gray-200 border-2 border-black">
-      <img src="{{ . }}" alt="" class="w-full h-full object-cover">
+  {{ range $images }}
+    {{ $webp := .Process "webp" }}
+    <div class="border-2 border-black bg-gray-100 flex items-center justify-center">
+      <img src="{{ $webp.RelPermalink }}" width="{{ $webp.Width }}" height="{{ $webp.Height }}" alt="" class="w-full h-auto block">
     </div>
-    {{ end }}
-  {{ else }}
+  {{ end }}
+</div>
+{{ else }}
+<div class="grid grid-cols-2 gap-2 mb-12">
   <div class="aspect-video bg-gray-200 border-2 border-black col-span-2 md:col-span-1 row-span-2"></div>
   <div class="aspect-video bg-gray-200 border-2 border-black hidden md:block"></div>
   <div class="aspect-video bg-gray-200 border-2 border-black hidden md:block"></div>
-  {{ end }}
 </div>
+{{ end }}
 
 <!-- Header -->
 <div class="border-b-4 border-black pb-8 mb-12">
