@@ -1,11 +1,37 @@
 {{ define "main" }}
-<section class="flex flex-col gap-6">
-  <h1 class="text-5xl font-bold tracking-tight">{{ site.Title }}</h1>
-  <p class="text-lg text-gray-500 max-w-xl">{{ site.Params.description }}</p>
-  <div>
-    <a href="/" class="inline-block bg-blue-600 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-colors">
-      Get started
-    </a>
+<section class="border-4 border-black p-10 md:p-16 min-h-[70vh] flex flex-col justify-end gap-8 relative overflow-hidden">
+  <!-- Background geometric accent ---->
+  <div aria-hidden="true" class="absolute top-0 right-0 w-48 h-48 md:w-72 md:h-72 bg-black" style="clip-path: polygon(100% 0, 0 0, 100% 100%);"></div>
+
+  <div class="flex flex-col gap-6 relative z-10">
+    <p class="text-xs uppercase tracking-[0.2em]" style="font-family: var(--font-mono);">{{ site.Params.tagline }}</p>
+    <h1 class="text-[clamp(3rem,10vw,8rem)] font-extrabold leading-none tracking-tight uppercase" style="font-family: var(--font-display);">
+      Augusto<br>Corvalan
+    </h1>
+    <p class="text-base md:text-lg max-w-xl leading-relaxed" style="font-family: var(--font-mono);">
+      {{ site.Params.description }}
+    </p>
+    <div class="flex gap-4 flex-wrap">
+      <a href="/about/" class="inline-block bg-[#FFFF00] border-4 border-black text-black text-sm font-bold uppercase tracking-widest px-6 py-3 hover:bg-black hover:text-[#FFFF00] transition-colors" style="font-family: var(--font-mono);">
+        View Work &rarr;
+      </a>
+    </div>
   </div>
 </section>
+
+<!-- Below-fold content hint ---->
+<div class="mt-16 border-t-4 border-black pt-12 grid grid-cols-1 md:grid-cols-3 gap-0">
+  <div class="border-b-4 md:border-b-0 md:border-r-4 border-black p-8">
+    <p class="text-xs uppercase tracking-widest mb-3" style="font-family: var(--font-mono);">Engineering</p>
+    <p class="text-sm leading-relaxed" style="font-family: var(--font-mono);">Data systems, developer tooling, design systems, and software infrastructure.</p>
+  </div>
+  <div class="border-b-4 md:border-b-0 md:border-r-4 border-black p-8">
+    <p class="text-xs uppercase tracking-widest mb-3" style="font-family: var(--font-mono);">Design</p>
+    <p class="text-sm leading-relaxed" style="font-family: var(--font-mono);">Brand identity, visual systems, UI/UX, and digital product design.</p>
+  </div>
+  <div class="p-8">
+    <p class="text-xs uppercase tracking-widest mb-3" style="font-family: var(--font-mono);">Editorial &amp; Publication</p>
+    <p class="text-sm leading-relaxed" style="font-family: var(--font-mono);">Long-form journalism, photo essays, zines, and print publications.</p>
+  </div>
+</div>
 {{ end }}
