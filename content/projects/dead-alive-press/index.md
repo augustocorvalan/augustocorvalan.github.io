@@ -2,7 +2,7 @@
 title: "Dead Alive Press"
 description: "Founded and lead a publishing operation for AI-generated texts and electronic literature, with work now included in syllabi at NYU, MIT, University of Iowa and more."
 role: "Editor in Chief"
-tools: ["Hugo", "Tailwind CSS", "Netlify", "Adobe InDesign"]
+tools: ["Hugo", "Tailwind CSS", "Netlify"]
 vertical: "editorial"
 tags: ["Publishing", "Editorial Direction", "Literary Editing"]
 links:
