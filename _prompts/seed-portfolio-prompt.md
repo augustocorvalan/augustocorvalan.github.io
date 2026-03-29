@@ -1,8 +1,36 @@
 ## Engineering
 
 **Axios**
+Senior Software Engineer II | 2021-2025
+axios.com
+
+1-sentence summary:
+
+At Axios, I spent four years growing from Senior Software Engineer to Staff Engineer, founding the Frontend Guild, building a production design system in React and Storybook, tech-leading a full-stack B2B platform, and pioneering the company's AI adoption — delivering production LLM tools built on AWS Bedrock, Postgres, and the Anthropic API.
+
+3-paragraph summary:
+
+At Axios I joined as a senior frontend engineer and grew into a Staff Engineer, taking on increasingly broad technical and organizational scope. One of my earliest and most enduring contributions was founding the company's Frontend Guild — building governance frameworks, running weekly cross-team syncs, and representing frontend concerns at executive meetings. Alongside that, I designed and maintained Axios's component design system using React, Storybook, Chromatic, and atomic design principles, shipping 50+ reusable components that saw daily adoption by 15+ engineers and remained structurally stable for 3+ years without significant restructuring.
+
+As the first tech lead on the B2B team, I architected and delivered a full-stack platform — payment infrastructure, licensing systems, and admin tooling — that powered 100+ enterprise partnerships worth 1,000+ licenses. This included leading a company-wide payment provider migration from Stripe to Recurly, and writing comprehensive Architecture Decision Records covering payment flow, user management, and membership management. The work spanned the full stack in TypeScript, React, Node, and GraphQL, requiring close coordination across engineering, product, and design.
+
+Later in my tenure I shifted focus to AI, becoming one of Axios's earliest internal champions of LLM adoption. I built a production RAG chatbot for internal documentation using AWS Bedrock, the Anthropic API, Postgres, and Astro — processing 500+ auto-updating documents and answering 100+ daily queries from engineers, designers, and PMs. I also built an LLM-powered incident response tool on a Guru pipeline that answered on-call technical questions with 90% accuracy across 400+ queries. Combined with an AI newsletter and monthly roundtables that drove adoption across 100+ technical staff, this work contributed to Axios becoming one of the first companies to cross 1 trillion tokens with OpenAI.
 
 **1stdibs**
+Senior Software Engineer | 2013-2020
+1stdibs.com
+
+1-sentence summary:
+
+Led major rewrite of the company's core e-commerce funnels, owning the buyer-facing codebase across 20+ engineers, and building custom performance tooling that kept the platform stable at scale.
+
+3-paragraph summary:
+
+At 1stdibs, I spent nearly seven years as a Senior Software Engineer, growing into one of the primary owners of the buyer-facing frontend. My most significant project was leading an international team in a year-long rewrite of the company's search and browse pages — the core funnels through which buyers discovered and purchased luxury goods. Working with a modern stack of Webpack, Express, GraphQL, Relay, and React, the rewrite improved Google PageSpeed scores by 30% and delivered substantial performance gains to the most critical traffic paths on the platform.
+
+Beyond the rewrite, I held deep ownership over the buyer-facing repository, serving as both a daily code reviewer and a domain expert for the product team. With contributions flowing in from 20+ engineers, I maintained a consistent focus on readable, self-documenting code and acted as connective tissue between engineering and product — translating business requirements into technical decisions and ensuring new features were shipped cleanly.
+
+I also invested heavily in platform reliability through custom internal tooling. I built a performance visualization suite using Docker, Puppeteer, Lighthouse, AWS Lambda, and React that gave teams the ability to track load times, catch regressions, and protect performance during active feature development. I also created a stress testing platform using Artillery and a custom multiprocess Node app to simulate traffic spikes, giving the team confidence before major infrastructure changes — work that became foundational to 1stdibs's ability to scale.
 
 **Natural Language Processing Group, Columbia University** — Research Assistant | 2011–2012
 
@@ -74,18 +102,26 @@ _Tags:_ Graphic Design · Editorial Design
 
 ## Editorial
 
-**Dead Alive Press** — Editor in Chief | 2017–Present
-- Founded and lead a creative publishing operation focused on AI-generated texts, electronic literature, and digital poetics, directing all aspects from content strategy and editing to design, marketing, and distribution.
-- Grew the publication organically to a mailing list of 600+ readers with a 40%+ open rate through community-focused content, consistent voice, and targeted outreach.
-- Established the publication as a credible voice in the AI creative community — work is now included in graduate syllabi at NYU, MIT, and the University of Iowa.
+**Dead Alive Press** — Editor in Chief, 2017–Present
+https://deadalivemagazine.com/press/
 
-**Taper Magazine** — Editor | 2018–Present
+_Summary:_ Founded and lead a publishing operation for AI-generated texts and electronic literature, with work now included in graduate syllabi at NYU, MIT, and the University of Iowa.
 
-- Provide editorial leadership for a long-running web-based literary journal dedicated to short computational poems and digital literary work.
-- Shape issue themes, evaluate and select submissions, and collaborate closely with authors to prepare work for publication.
-- Featured in the Electronic Literature Foundation Conference & Media Arts Show.
+Founded Dead Alive Press and have directed all aspects of the operation since 2017 — editorial strategy, design, production, marketing, and distribution. Grew an organic mailing list to 600+ readers with a 40%+ open rate. The press has established itself as a recognized voice in AI creative writing, with publications referenced in graduate syllabi at NYU, MIT, and the University of Iowa.
 
-**Masters Review**
+_Tags:_ Publishing · Editorial Direction · Literary Editing
+
+---
+
+**Taper Magazine** — Editor, 2018–Present
+https://taper.badquar.to/
+
+_Summary:_ Editorial leadership for a web-based literary journal dedicated to short computational poems, featured at the Electronic Literature Foundation Conference & Media Arts Show.
+
+Provide ongoing editorial leadership for Taper, a literary journal publishing short-form computational poems and digital literary work. Responsibilities include shaping issue themes, evaluating submissions, and collaborating with authors through the editing and production process. Featured at the Electronic Literature Foundation Conference & Media Arts Show.
+
+_Tags:_ Web Publishing · Editorial Direction · Literary Editing
+
 
 ## Education
 
@@ -97,7 +133,6 @@ Certificate in Creative Coding — 2018
 
 **Columbia University**, New York, NY
 B.A. in Creative Writing and Computer Science — 2013
-
 
 ## Publication
 

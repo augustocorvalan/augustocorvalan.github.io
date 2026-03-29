@@ -25,3 +25,7 @@ details > *:not(summary) {
 details[open] > *:not(summary) {
   max-height: 9999px;
 }
+
+.project-content p {
+  margin-bottom: 1.5rem;
+}
