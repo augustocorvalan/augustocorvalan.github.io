@@ -5,8 +5,8 @@ title = "Augusto Corvalan"
 enableRobotsTXT = true
 
 [params]
-  description = "Designer, engineer, and editor. Building things at the intersection of craft and technology."
+  description = "Staff engineer with 15 years building production systems at scale. Specializing in frontend architecture, design systems, and applied AI/LLM tooling."
   author = "Augusto Corvalan"
   og_image = ""
   showHomeInNav = false
-  tagline = "Designer · Engineer · Editor"
+  tagline = "Designer · Software Engineer · AI/LLM"

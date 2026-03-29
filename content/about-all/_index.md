@@ -1,7 +1,7 @@
 ---
 title: "About"
 layout: "portfolio"
-verticals: ["engineering", "design", "editorial", "publication"]
+verticals: ["engineering", "design", "editorial"]
 education:
   - school: "Maryland Institute College of Art"
     location: "Baltimore, MD"

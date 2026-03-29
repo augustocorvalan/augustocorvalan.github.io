@@ -49,7 +49,6 @@
         {{- if site.Params.showHomeInNav }}
         <a href="{{ site.Home.Permalink }}" class="text-sm font-medium uppercase tracking-widest px-3 py-1 border-2 border-transparent hover:bg-[#FFFF00] hover:border-black transition-colors" style="font-family: var(--font-mono);">Home</a>
         {{- end }}
-        <a href="/about/" class="text-sm font-medium uppercase tracking-widest px-3 py-1 border-2 border-transparent hover:bg-[#FFFF00] hover:border-black transition-colors{{ if eq .RelPermalink "/about/" }} bg-[#FFFF00] border-black{{ end }}" style="font-family: var(--font-mono);">About</a>
       </div>
     </nav>
 
@@ -62,8 +61,7 @@
       <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <span class="text-xs uppercase tracking-widest" style="font-family: var(--font-mono);">Augusto Corvalan &copy; {{ now.Year }}</span>
         <div class="flex gap-6 text-xs uppercase tracking-widest" style="font-family: var(--font-mono);">
-          <a href="mailto:hello@augustocorvalan.com" class="hover:bg-[#FFFF00] px-1 transition-colors">Email</a>
-          <a href="https://linkedin.com/in/augustocorvalan" class="hover:bg-[#FFFF00] px-1 transition-colors">LinkedIn</a>
+          <a href="mailto:augustocorvalan@gmail.com" class="hover:bg-[#FFFF00] px-1 transition-colors">Email</a>
           <a href="https://github.com/augustocorvalan" class="hover:bg-[#FFFF00] px-1 transition-colors">GitHub</a>
         </div>
       </div>
