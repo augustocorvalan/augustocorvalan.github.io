@@ -10,7 +10,7 @@
   {{ range $images }}
     {{ $webp := .Process "webp" }}
     <div class="border-2 border-black bg-gray-100 flex items-center justify-center">
-      <img src="{{ $webp.RelPermalink }}" width="{{ $webp.Width }}" height="{{ $webp.Height }}" alt="" class="w-full h-auto block">
+      <img src="{{ $webp.RelPermalink }}" width="{{ $webp.Width }}" height="{{ $webp.Height }}" alt="" class="w-full h-auto block cursor-pointer" data-lightbox-src="{{ $webp.RelPermalink }}">
     </div>
   {{ end }}
 </div>
@@ -73,4 +73,5 @@
 <div class="mt-16 border-t-4 border-black pt-8">
   <a href="/about/" class="text-xs uppercase tracking-widest hover:bg-[#FFFF00] px-1 transition-colors" style="font-family: var(--font-mono);">&larr; Back to Work</a>
 </div>
+
 {{ end }}
