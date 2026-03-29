@@ -8,5 +8,8 @@
   {{ range .Params.verticals }}
     {{ partial "portfolio-vertical.html" (dict "vertical" . "page" $page) }}
   {{ end }}
+  {{ with .Params.education }}
+    {{ partial "education.html" (dict "education" .) }}
+  {{ end }}
 </div>
 {{ end }}
