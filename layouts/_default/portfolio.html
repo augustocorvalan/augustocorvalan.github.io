@@ -5,11 +5,12 @@
 
 <div class="flex flex-col gap-0">
   {{ $page := . }}
-  {{ range .Params.verticals }}
-    {{ partial "portfolio-vertical.html" (dict "vertical" . "page" $page) }}
+  {{ range $i, $v := .Params.verticals }}
+    {{ partial "portfolio-vertical.html" (dict "vertical" $v "page" $page "index" $i) }}
   {{ end }}
   {{ with .Params.education }}
-    {{ partial "education.html" (dict "education" .) }}
+    {{ $eduIndex := len $page.Params.verticals }}
+    {{ partial "education.html" (dict "education" . "index" $eduIndex) }}
   {{ end }}
 </div>
 {{ end }}

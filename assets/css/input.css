@@ -17,6 +17,10 @@ main {
   animation: fadeIn 0.3s ease both;
 }
 
+.vertical-entry {
+  animation: fadeIn 0.4s ease both;
+}
+
 details > *:not(summary) {
   overflow: hidden;
   transition: max-height 0.35s ease;
